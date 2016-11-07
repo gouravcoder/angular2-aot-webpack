@@ -2,6 +2,6 @@
 
 This repository shows how to use the Angular 2 compiler-CLI (ngc) with Webpack.
 
-### Starting the application
+<!--### Starting the application-->
 
-### Known issues
+<!--### Known issues-->
