@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true,
+    "typeRoots": [ "./node_modules/@types" ],
+    "types": [
+      "core-js",
+      "node",
+      "webpack",
+      "webpack-dev-server"
+    ]
+  },
+  "files": [],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
