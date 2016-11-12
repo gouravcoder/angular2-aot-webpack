@@ -33,15 +33,16 @@ if ( process.env.NODE_ENV == 'production' ) {
     }),
     new NoErrorsPlugin(),
     new UglifyJsPlugin({
-        compress: {
-            screw_ie8: true,
-            warnings: true
-        },
-        mangle: {
-            screw_ie8 : true
-        },
-        comments: false,
-        sourceMap: process.env.WEBPACK_KEEP_SRC_MAP
+      compress: {
+        drop_console: true,
+        screw_ie8: true,
+        warnings: true
+      },
+      mangle: {
+        screw_ie8 : true
+      },
+      comments: false,
+      sourceMap: process.env.WEBPACK_KEEP_SRC_MAP
     })
   );
 } else {
@@ -76,7 +77,6 @@ exports.module = {
 };
 
 exports.devServer = {
-  contentBase: './src',
   port: 8080,
   inline: true,
   historyApiFallback: true,
