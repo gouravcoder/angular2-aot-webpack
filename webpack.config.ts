@@ -5,7 +5,6 @@ const { ContextReplacementPlugin, DefinePlugin, LoaderOptionsPlugin, NoErrorsPlu
 } = require( 'webpack' );
 
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
-const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 
 let devtool = 'inline-source-map',
     entry   = {
@@ -62,17 +61,17 @@ exports.context = path.join( process.cwd(), 'src' );
 exports.module = {
   rules: [{
     test: /\.ts$/,
-    use: [ 'awesome-typescript', 'angular2-template' ]
+    use: [ 'awesome-typescript-loader', 'angular2-template-loader' ]
   }, {
     test: /\.html$/,
-    use: 'raw'
+    use: 'raw-loader'
   }, {
     test: /\.css$/,
     exclude: /node_modules/,
-    use: [ 'to-string', 'css' ]
+    use: [ 'to-string-loader', 'css-loader' ]
   }, {
     test: /\.scss$/,
-    loaders: [ 'to-string', 'css', 'sass' ]
+    loaders: [ 'to-string-loader', 'css-loader', 'sass-loader' ]
   }]
 };
 
