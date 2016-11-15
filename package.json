@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "npm run ngc && npm run webpack-prod",
-    "explorer": "npm run ngc && npm run webpack-prod-src-map && source-map-explorer ./dist/main.bundle.js",
+    "src-explorer": "npm run ngc && npm run webpack-prod-src-map && npm run src-map-explorer",
+    "src-map-explorer": "source-map-explorer ./dist/main.bundle.js",
     "clean": "rimraf dist ngfactory src/**/*.ngfactory.ts src/**/*.shim.ts",
     "ngc": "ngc -p ./tsconfig.aot.json",
     "prebuild": "npm run clean",
