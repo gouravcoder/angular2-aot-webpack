@@ -30,6 +30,7 @@ ngfactory
 src/**/*.ngfactory.ts
 src/**/*.css.shim.ts
 src/**/*.scss.shim.ts
+src/**/*.css
 
 # Project build dist
 dist
