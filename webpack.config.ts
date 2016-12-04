@@ -12,9 +12,9 @@ let devtool = 'inline-source-map',
         'webpack-dev-server/client?http://localhost:8080',
         'webpack/hot/only-dev-server'
       ],
-      'vendor'      : './app/vendor.ts',
-      'polyfill'    : './app/polyfill.ts',
-      'main'        : './app/main.ts'
+      'vendor'    : './app/vendor.ts',
+      'polyfills' : './app/polyfills.ts',
+      'main'      : './app/main.ts'
     },
     plugins = [];
 
@@ -22,7 +22,7 @@ if ( process.env.NODE_ENV == 'production' ) {
   devtool = ( process.env.WEBPACK_KEEP_SRC_MAP ) ? 'inline-source-map' : false;
   entry = [
     './app/vendor.ts',
-    './app/polyfill.ts',
+    './app/polyfills.ts',
     './app/main.aot.ts'
   ];
   plugins.push(
@@ -46,8 +46,9 @@ if ( process.env.NODE_ENV == 'production' ) {
   );
 } else {
   plugins.push(
+    new HotModuleReplacementPlugin(),
     new CommonsChunkPlugin({
-      name: [ 'polyfill', 'vendor', 'main', 'live-reload' ].reverse()
+      name: [ 'polyfills', 'vendor', 'main', 'live-reload' ].reverse()
     })
   );
 }
@@ -91,7 +92,6 @@ exports.output = {
 };
 
 exports.plugins = [
-  new HotModuleReplacementPlugin(),
   new ProgressPlugin(),
   new ContextReplacementPlugin(
     // The (\\|\/) piece accounts for path separators in *nix and Windows
